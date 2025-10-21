@@ -1,5 +1,6 @@
 import '@/app/ui/global.css';
-
+import { inter, bitcount } from '@/app/ui/fonts';
+ 
 export default function RootLayout({
   children,
 }: {
@@ -7,7 +8,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.className} ${bitcount.variable} antialiased`}>{children}</body>
     </html>
   );
 }
+
