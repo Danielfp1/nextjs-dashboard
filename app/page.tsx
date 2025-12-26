@@ -4,8 +4,18 @@ import Link from 'next/link';
 import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts'
 import Image from 'next/image';
+import MaintenancePage from '@/app/ui/maintenance';
 
 export default function Page() {
+  // Verifica se o modo de manutenção está ativado
+  const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
+
+  // Se estiver em manutenção, exibe a página de manutenção
+  if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
+
+  // Caso contrário, exibe a página normal
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
